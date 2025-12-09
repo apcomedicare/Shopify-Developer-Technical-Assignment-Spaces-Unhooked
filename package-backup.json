@@ -1,0 +1,43 @@
+{
+  "name": "theme-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "bash ./compiler/tasks/build.sh",
+    "build:prod": "bash ./compiler/tasks/build.sh --prod",
+    "build:vendor": "cd src/vendor && npm install && webpack --mode production --config webpack.config.js",
+    "watch": "bash ./compiler/tasks/watch.sh",
+    "serve": "bash ./compiler/tasks/serve.sh",
+    "start": "bash ./compiler/tasks/start.sh",
+    "logout": "shopify auth logout",
+    "login": "npm run logout && shopify theme dev --store=spacesunhooked-technical-assignment.myshopify.com",
+    "dev": "shopify theme dev --theme-editor-sync",
+    "pull": "cd theme && shopify theme pull",
+    "push": "cd theme && shopify theme push",
+    "fix-1": "sudo chown -R $(whoami) /opt/homebrew /opt/homebrew/lib/pkgconfig /opt/homebrew/share/aclocal /opt/homebrew/share/info /opt/homebrew/share/locale /opt/homebrew/share/man/man3 /opt/homebrew/share/zsh /opt/homebrew/share/zsh/site-functions /opt/homebrew/var/homebrew/locks",
+    "fix-2": "chmod u+w /opt/homebrew /opt/homebrew/lib/pkgconfig /opt/homebrew/share/aclocal /opt/homebrew/share/info /opt/homebrew/share/locale /opt/homebrew/share/man/man3 /opt/homebrew/share/zsh /opt/homebrew/share/zsh/site-functions /opt/homebrew/var/homebrew/locks"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chokidar": "^3.6.0",
+    "clipboard": "^2.0.11",
+    "concurrently": "^7.0.0",
+    "css-loader": "^6.6.0",
+    "glob": "^7.2.0",
+    "nvm": "0.0.4",
+    "recursive-copy": "^2.0.14",
+    "sass": "^1.77.5",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "engines": {
+    "node": ">=14.12.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.2"
+  }
+}

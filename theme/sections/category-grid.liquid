@@ -1,0 +1,138 @@
+
+<style>
+
+/* Responsive Grid With User Controls */
+.category-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(var(--desktop-cols), 1fr);
+}
+
+@media (max-width: 991px) {
+  .category-grid {
+    grid-template-columns: repeat(var(--tablet-cols), 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .category-grid {
+    gap: 10px;
+    grid-template-columns: repeat(var(--mobile-cols), 1fr);
+  }
+}
+
+</style>
+
+<section class="category-grid-section page_width">
+  <div class="container">
+    {% if section.settings.section_title != blank %}
+      <h2 class="category-grid-title">{{ section.settings.section_title }}</h2>
+    {% endif %}
+
+    <div 
+      class="category-grid"
+      style="
+        --desktop-cols: {{ section.settings.desktop_columns }};
+        --tablet-cols: {{ section.settings.tablet_columns }};
+        --mobile-cols: {{ section.settings.mobile_columns }};
+      "
+    >
+      {% for block in section.blocks %}
+        {% assign img = block.settings.cat_image %}
+        <a 
+          href="{{ block.settings.cat_link | default: '#' }}" 
+          class="category-grid-item"
+          {{ block.shopify_attributes }}
+        >
+          {% if img != blank %}
+            <img 
+              src="{{ img | image_url: width: 600 }}"
+              alt="{{ block.settings.cat_label }}"
+              loading="lazy"
+            >
+          {% else %}
+            <div class="placeholder-bg"></div>
+          {% endif %}
+
+          {% if block.settings.cat_label != blank %}
+            <span class="category-label">{{ block.settings.cat_label }}</span>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "5 Image Category Grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Category Grid Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Shop by Category"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "label": "Desktop Columns",
+      "min": 1,
+      "max": 5,
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "tablet_columns",
+      "label": "Tablet Columns",
+      "min": 1,
+      "max": 5,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "label": "Mobile Columns",
+      "min": 1,
+      "max": 5,
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category_item",
+      "name": "Category Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "cat_image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "cat_label",
+          "label": "Category Label",
+          "default": "Category Name"
+        },
+        {
+          "type": "url",
+          "id": "cat_link",
+          "label": "Category Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "5 Image Category Grid",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

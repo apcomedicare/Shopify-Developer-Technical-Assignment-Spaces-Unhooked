@@ -1,0 +1,317 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "product_list_fa6P9H": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_YFtzcL": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_MWeP9V": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_YFtzcL",
+            "product_list_button_MWeP9V"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_677WP3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_YXxMTj": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_JQzVV4": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_677WP3",
+            "product_title_YXxMTj",
+            "price_JQzVV4"
+          ]
+        }
+      },
+      "name": "Featured collection",
+      "settings": {
+        "collection": "all",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "category_grid_qDyxED": {
+      "type": "category-grid",
+      "blocks": {
+        "category_item_AMbN4M": {
+          "type": "category_item",
+          "settings": {
+            "cat_image": "shopify://shop_images/30th-Jan-029.webp",
+            "cat_label": "Grid One",
+            "cat_link": "shopify://collections/frontpage"
+          }
+        },
+        "category_item_eY9pcB": {
+          "type": "category_item",
+          "settings": {
+            "cat_image": "shopify://shop_images/02.webp",
+            "cat_label": "Grid Two",
+            "cat_link": "shopify://products/celestial-veil-earthly-essence-collection-spaces-unhooked"
+          }
+        },
+        "category_item_MEpirY": {
+          "type": "category_item",
+          "settings": {
+            "cat_image": "shopify://shop_images/29th-Jan-010.webp",
+            "cat_label": "Grid Three",
+            "cat_link": ""
+          }
+        },
+        "category_item_ggmdXP": {
+          "type": "category_item",
+          "settings": {
+            "cat_image": "shopify://shop_images/30th-Jan-029.webp",
+            "cat_label": "Grid Four",
+            "cat_link": "shopify://products/celestial-veil-earthly-essence-collection-spaces-unhooked"
+          }
+        },
+        "category_item_egwG7G": {
+          "type": "category_item",
+          "settings": {
+            "cat_image": "shopify://shop_images/02.webp",
+            "cat_label": "Grid Five",
+            "cat_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "category_item_AMbN4M",
+        "category_item_eY9pcB",
+        "category_item_MEpirY",
+        "category_item_ggmdXP",
+        "category_item_egwG7G"
+      ],
+      "name": "5 Image Category Grid",
+      "settings": {
+        "section_title": "Task 1 :- Build a Responsive 5-Image Category Grid",
+        "desktop_columns": 5,
+        "tablet_columns": 3,
+        "mobile_columns": 2
+      }
+    },
+    "product_hotspots_VVmFbk": {
+      "type": "product-hotspots",
+      "blocks": {
+        "hotspot_nEyn8X": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 27,
+            "product": "celestial-veil-earthly-essence-collection-spaces-unhooked",
+            "tooltip_title": "",
+            "tooltip_description": "",
+            "pin_color": "#1d3686",
+            "pin_border": "#ffffff",
+            "pin_glow": "#1d3686",
+            "tooltip_bg": "#ffffff",
+            "tooltip_text": "#000000"
+          }
+        },
+        "hotspot_kjDajf": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 9,
+            "pos_y": 25,
+            "product": "celestial-veil-earthly-essence-collection-spaces-unhooked",
+            "tooltip_title": "Tooltip Title",
+            "tooltip_description": "Tooltip Description",
+            "pin_color": "#774620",
+            "pin_border": "#fafafa",
+            "pin_glow": "#774620",
+            "tooltip_bg": "#ffffff",
+            "tooltip_text": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_nEyn8X",
+        "hotspot_kjDajf"
+      ],
+      "name": "Product Hotspots Banner",
+      "settings": {
+        "section_title": "Task 2:- Implement Interactive Product Hotspots (Pin Points)",
+        "bg_image": "shopify://shop_images/Artboardasd_5_293b9632-8afe-48e5-98af-a738d2fb52fd.webp"
+      }
+    }
+  },
+  "order": [
+    "product_list_fa6P9H",
+    "category_grid_qDyxED",
+    "product_hotspots_VVmFbk"
+  ]
+}
