@@ -20,7 +20,7 @@
 
   .container {
     .category-grid-title {
-        @include category-grid-title();
+      @include category-grid-title();
     }
 
     .category-grid {
@@ -32,12 +32,12 @@
         outline: 2px solid #000;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
 
-            img,
-        .placeholder-bg{
+          img,
+          .placeholder-bg {
             scale: 1.2;
-        }
+          }
 
         }
 
@@ -76,38 +76,247 @@
 
 
 // product hotspots
-  .hotspot-section {
-    width: 100%;
-    position: relative;
-    padding: 30px 10px;
-        margin-bottom: 1000px;
+.hotspot-section {
+  width: 100%;
+  position: relative;
+  padding: 30px 10px;
 
-    .category-grid-title{
-        @include category-grid-title();
+  .category-grid-title {
+    @include category-grid-title();
+  }
+
+  .hotspot-wrapper {
+    position: relative;
+    width: 100%;
+
+    .hotspot-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 5;
+      width: 18px;
+      height: 18px;
     }
 
-      .hotspot-wrapper {
-    position: relative;
-    width: 100%;
+    .hotspot-bg {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      outline: 2px solid #000;
+    }
 
-      .hotspot-pin {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    z-index: 5;
-    width: 18px;
-    height:18px;
   }
-
-      .hotspot-bg {
-    width: 100%;
-    border-radius: 12px;
-    display: block;
-    outline: 2px solid #000;
-  }
-  
-  }
-  }
+}
 
 
-  
+// custom feature variant grid
+.custom-featured-variant-grid_container {
+  // background: red;
+  padding: 30px 10px;
+  margin-bottom: 100px;
+
+  .category-grid-title {
+    @include category-grid-title();
+  }
+
+  .grid_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 680px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    >.card_item {
+      outline: 1.5px solid #000;
+      padding: 5px;
+      border-radius: 10px;
+
+      >.item_images-content {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all .3s;
+
+        &:hover {
+
+          a {
+            >#second_img {
+              z-index: 2;
+            }
+
+            >#first_img {
+              z-index: 1;
+            }
+          }
+
+
+        }
+
+        a {
+          >#second_img {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          >#first_img {
+            position: relative;
+            z-index: 2;
+          }
+        }
+
+
+        >.wishlist-btn {
+          position: absolute;
+          z-index: 4;
+          border: none;
+          outline: none;
+          background: none;
+          cursor: pointer;
+
+          .wishlist-icon {
+            fill: none;
+            /* empty by default */
+            stroke: #000;
+            transition: fill 0.2s ease;
+
+            &:hover {
+              fill: red;
+            }
+          }
+        }
+
+        >.wishlist-btn.added .wishlist-icon {
+          stroke: red;
+          fill: red;
+        }
+      }
+
+
+
+      >.item-content {
+        margin-top: 10px;
+
+        .title {
+          font-size: 18px;
+          font-weight: 300;
+          margin: 0;
+          text-align: center;
+
+          @media (max-width: 680px) {
+            font-size: 12px;
+          }
+        }
+
+        >.price {
+          text-align: center;
+          font-size: 18px;
+          font-weight: 500;
+
+          @media (max-width: 680px) {
+            font-size: 12px;
+          }
+
+          >span {
+            text-decoration: line-through;
+            font-size: 14px;
+            color: red;
+
+            @media (max-width: 680px) {
+              font-size: 10px;
+            }
+          }
+        }
+
+        >.variant_box {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin-top: 10px;
+
+          >.variant_tab {
+            outline: 1px solid #000;
+            padding: 2px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all .3s;
+
+            @media (max-width: 680px) {
+              font-size: 12px;
+              padding: 2px 5px;
+            }
+
+            &:hover {
+              background: #000;
+              color: #fff;
+            }
+          }
+
+          >.variant_tab.active {
+            background: #000;
+            color: #fff;
+          }
+        }
+
+        >.add_to_cart {
+          background: #000;
+          color: #fff;
+          width: 100%;
+          padding: 5px 10px;
+          text-transform: uppercase;
+          border-radius: 50px;
+          display: block;
+          text-align: center;
+          margin-top: 10px;
+          transition: all .3s;
+
+          @media (max-width: 680px) {
+            font-size: 12px;
+          }
+
+          &:hover {
+            background: #545454;
+          }
+        }
+
+        >.add_to_cart.loading {
+          position: relative;
+          color: transparent;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 18px;
+            height: 18px;
+            margin: -9px 0 0 -9px;
+            border: 2px solid #fff;
+            border-top: 2px solid #000;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+          }
+
+          @keyframes spin {
+            0% {
+              transform: rotate(0deg);
+            }
+
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}

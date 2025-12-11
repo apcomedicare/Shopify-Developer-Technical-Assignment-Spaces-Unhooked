@@ -29,7 +29,7 @@
     "glob": "^7.2.0",
     "nvm": "0.0.4",
     "recursive-copy": "^2.0.14",
-    "sass": "^1.77.5",
+    "sass": "^1.95.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"

@@ -1,0 +1,147 @@
+<div class="page_width">
+  <div class="custom-featured-variant-grid_container">
+    {% if section.settings.section_title != blank %}
+      <h2 class="category-grid-title">{{ section.settings.section_title }}</h2>
+    {% endif %}
+
+    <div class="grid_container">
+      {% assign collection = section.settings.tab_collection %}
+
+      {% for product in collection.products limit: section.settings.product_range %}
+        <div class="card_item">
+          {% assign first_image = product.featured_image %}
+          {% assign second_image = product.images[1] %}
+
+          {%- if product.variants.size > 0 and product.variants.first.image != blank -%}
+            {% assign first_image = product.variants.first.image %}
+          {%- endif -%}
+
+          <div class="item_images-content">
+            <!-- snippets/wishlist-icon.liquid -->
+            <button
+              class="wishlist-btn"
+              data-product-id="{{ product.id }}"
+              aria-label="Add to Wishlist"
+            >
+              <svg class="wishlist-icon" width="24" height="24" fill="none" stroke="currentColor">
+                <path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42
+                         4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81
+                         14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4
+                         6.86-8.55 11.18L12 21z"></path>
+              </svg>
+            </button>
+            <a href="{{ product.url }}">
+              <img
+                src="{{ first_image | image_url: width: 600 }}"
+                alt="{{ product.title }} first"
+                id="first_img"
+              >
+
+              <img
+                src="{{ second_image | image_url: width: 600 }}"
+                alt="{{ product.title }} second"
+                id="second_img"
+              >
+            </a>
+          </div>
+          <!-- - item images content - -->
+
+          <div class="item-content">
+            <a href="{{ product.url }}">
+              <h3 class="title">{{ product.title | truncate: 35, '...' }}</h3>
+            </a>
+
+            {% assign actual_price = product.price | money_with_currency | remove: '.00' %}
+
+            {% assign compare_at_price = product.compare_at_price | money_with_currency | remove: '.00' %}
+
+            <div class="price">
+              {{ actual_price }}
+              <span>{{ compare_at_price }}</span>
+            </div>
+
+            {% if product.variants.size > 1 %}
+              <div class="variant_box">
+                {% for variant in product.variants %}
+                  <div
+                    class="variant_tab {% if forloop.first %}active{% endif %} variant_box_all_data"
+                    data-variant-id="{{ variant.id }}"
+                    data-price="{{ variant.price | divided_by: 100 }}"
+                    data-compare-at-price="{{ variant.compare_at_price | divided_by: 100 }}"
+                    data-image="{% if variant.image %}{{ variant.image | image_url: width: 600 }}{% else %}{{ first_image | image_url: width: 600 }}{% endif %}"
+                    data-inventory="{{ variant.inventory_quantity }}"
+                  >
+                    {{ variant.title }}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+            {% if product.available %}
+              <a
+                href="{{ product.url }}"
+                class="add_to_cart"
+                data-product-id="{{ product.id }}"
+              >
+                Add To Cart
+              </a>
+            {% else %}
+              <a
+                href="javascript:void(0)"
+                class="add_to_cart disabled"
+                data-product-id="{{ product.id }}"
+                style="opacity:0.5; pointer-events:none;"
+              >
+                Out of Stock
+              </a>
+            {% endif %}
+          </div>
+          <!-- - item content -->
+        </div>
+        <!-- -- cart item-- -->
+      {% endfor %}
+    </div>
+    <!-- - grid container-- -->
+  </div>
+  <!-- - custom featured variant grid container- -->
+</div>
+
+{% schema %}
+{
+  "name": "Custom Featured Variant",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Featured Variant Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Shop by Category"
+    },
+    {
+      "type": "collection",
+      "label": "Select collection",
+      "id": "tab_collection"
+    },
+    {
+      "type": "range",
+      "label": "Product range",
+      "id": "product_range",
+      "default": 4,
+      "min": 1,
+      "max": 20,
+      "step": 1
+    }
+  ],
+  "blocks": [],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Custom Featured Variant",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -307,11 +307,21 @@
         "section_title": "Task 2:- Implement Interactive Product Hotspots (Pin Points)",
         "bg_image": "shopify://shop_images/Artboardasd_5_293b9632-8afe-48e5-98af-a738d2fb52fd.webp"
       }
+    },
+    "custom_feature_variant_grid_9DqGHL": {
+      "type": "custom-feature-variant-grid",
+      "name": "Custom Featured Variant",
+      "settings": {
+        "section_title": "Task 3: Build a Custom Product Variant Selector <br>Task 4: Implement a Wishlist Feature Without Using an App <br> Task 5: Build an AJAX Cart Drawer",
+        "tab_collection": "demo",
+        "product_range": 4
+      }
     }
   },
   "order": [
     "product_list_fa6P9H",
     "category_grid_qDyxED",
-    "product_hotspots_VVmFbk"
+    "product_hotspots_VVmFbk",
+    "custom_feature_variant_grid_9DqGHL"
   ]
 }
